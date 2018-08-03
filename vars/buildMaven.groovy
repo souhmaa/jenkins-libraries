@@ -14,7 +14,7 @@ def call(body) {
             }
             stage('Build') {
                 def version = buildVersion {
-                    suffix: 'ABC'
+                    suffix = 'ABC'
                 }
                 sh "echo 'building ${config.projectName} ... ${version}'"
             }

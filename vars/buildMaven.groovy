@@ -13,10 +13,10 @@ def call(body) {
                 checkout scm
             }
             stage('Build') {
-                buildVersion {
+                def version = buildVersion {
                     suffix: 'ABC'
                 }
-                sh "echo 'building ${config.projectName} ...'"
+                sh "echo 'building ${config.projectName} ... ${version}'"
             }
             stage('Tests') {
                 parallel 'static': {

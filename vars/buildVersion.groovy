@@ -8,5 +8,5 @@ def call(body) {
     def pomVersion = pom.version
 
 
-    echo pomVersion
+    sh "echo 'Version: ${pomVersion}...'"
 }

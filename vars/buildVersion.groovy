@@ -3,10 +3,11 @@ def call() {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()*/
+    node {
+        def pom = readMavenPom file: 'pom.xml'
+        def version = pom.version.replace("-SNAPSHOT", ".${currentBuild.number}")
 
-    def matcher = readFile('pom.xml') =~ '<version>(.+?)</version>'
-    def pomVersion = matcher ? matcher[0][1] : null
 
-
-    sh "echo 'Version: ${pomVersion}...'"
+        sh "echo 'Version: ${version}...'"
+    }
 }

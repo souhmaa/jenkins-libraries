@@ -1,8 +1,8 @@
-def call(body) {
-    def config = [:]
+def call() {
+    /* def config = [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
-    body()
+    body()*/
 
     def pom = readMavenPom file: 'pom.xml'
     def pomVersion = pom.version

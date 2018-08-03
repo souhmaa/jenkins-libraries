@@ -13,21 +13,7 @@ def call(body) {
                 checkout scm
             }
             stage('Build') {
-                def version = buildVersion {
-                    suffix = 'ABC'
-                }
-                sh "echo 'building ${config.projectName} ... ${version}'"
-            }
-            stage('Tests') {
-                parallel 'static': {
-                    sh "echo 'shell scripts to run static tests...'"
-                },
-                        'unit': {
-                            sh "echo 'shell scripts to run unit tests...'"
-                        },
-                        'integration': {
-                            sh "echo 'shell scripts to run integration tests...'"
-                        }
+                sh "mvn clean package"
             }
             stage('Deploy') {
                 sh "echo 'deploying to server ${config.serverDomain}...'"

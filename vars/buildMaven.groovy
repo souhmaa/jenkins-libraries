@@ -13,6 +13,9 @@ def call(body) {
                 checkout scm
             }
             stage('Build') {
+                buildVersion {
+                    suffix: 'ABC'
+                }
                 sh "echo 'building ${config.projectName} ...'"
             }
             stage('Tests') {

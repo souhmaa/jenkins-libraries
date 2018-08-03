@@ -5,9 +5,9 @@ def call(body) {
     body()
 
 
-    node {
+    /*node {
         def pom = readMavenPom file: 'pom.xml'
         def version = pom.version.replace("-SNAPSHOT", ".${config.suffix}")
         return version
-    }
+    }*/
 }

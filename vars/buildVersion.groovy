@@ -4,8 +4,8 @@ def call() {
     body.delegate = config
     body()*/
 
-    def pom = readMavenPom file: 'pom.xml'
-    def pomVersion = pom.version
+    def matcher = readFile('pom.xml') =~ '<version>(.+?)</version>'
+    def pomVersion = matcher ? matcher[0][1] : null
 
 
     sh "echo 'Version: ${pomVersion}...'"

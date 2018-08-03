@@ -1,3 +1,3 @@
-def call(String name = 'human') {
-    echo "Hello, ${name}."
+def call(config) {
+    echo "Hello, ${config.name}. HI"
 }
